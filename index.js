@@ -4,7 +4,7 @@ const express = require("express");
 const app = express();
 
 app.get("/", (req, res) => {
-  res.send({ hi: "there" });
+  res.send({ hi: "there, I've changed" });
 });
 
 // dynamically set the port to the preset port, or use port 5000
