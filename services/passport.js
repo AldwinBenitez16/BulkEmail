@@ -5,6 +5,16 @@ const keys = require("../config/keys");
 
 const User = mongoose.model("users");
 
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+passport.deserializeUser((id, done) => {
+  User.findById(id).then(user => {
+    done(null, user);
+  });
+});
+
 // allows passport to use goggle oauth20 strategy/authentication
 // param (clientID, ClientSecret), provided by oauth service
 passport.use(
