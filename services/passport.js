@@ -5,10 +5,13 @@ const keys = require("../config/keys");
 
 const User = mongoose.model("users");
 
+// setting the the userID as a cookie id
+// this ID is later used in the deserializedUser to get all other information
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });
 
+// we fetch the googleID and other info using the user.id and scanning mongoDb database
 passport.deserializeUser((id, done) => {
   User.findById(id).then(user => {
     done(null, user);
