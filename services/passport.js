@@ -1,6 +1,9 @@
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const mongoose = require("mongoose");
 const keys = require("../config/keys");
+
+const User = mongoose.model("users");
 
 // allows passport to use goggle oauth20 strategy/authentication
 // param (clientID, ClientSecret), provided by oauth service
@@ -12,9 +15,18 @@ passport.use(
       callbackURL: "/auth/google/callback"
     },
     (acessToken, refreshToken, profile, done) => {
-      console.log("acessToken:", acessToken);
-      console.log("refreshToken:", refreshToken);
-      console.log("profile:", profile);
+      User.findOne({ googleID: profile.id }).then(existingUser => {
+        if (existingUser) {
+          // user is already created in database
+          done(null, existingUser);
+        } else {
+          // user is not yet created
+          // create a new user in the database
+          new User({ googleID: profile.id }).save().then(user => {
+            done(null, user);
+          });
+        }
+      });
     }
   )
 );
