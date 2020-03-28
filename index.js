@@ -18,6 +18,7 @@ app.use(
     keys: [keys.cookieKey]
   })
 );
+
 // Tells app to use passport and session takes the user/session ID from the cookies and and passes it into the deserialized user
 app.use(passport.initialize());
 app.use(passport.session());
