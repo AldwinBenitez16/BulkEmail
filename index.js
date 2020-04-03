@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
+const bodyParser = require("body-parser");
 const keys = require("./config/keys");
 require("./models/User"); // initializes schema and connection to mongoDb database using mongoose
 require("./services/passport"); // sets up OAuth and id/user management
@@ -12,6 +13,7 @@ mongoose.connect(keys.mongoURI); // connect mongoDb database to mongoose
 const app = express();
 
 // tell express/app to use cookieSession, in every call
+app.use(bodyParser.json());
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
@@ -24,6 +26,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require("./routes/authRoutes")(app);
+require("./routes/billingRoutes")(app);
 
 // dynamically set the port to the preset port, or use port 5000
 const PORT = process.env.PORT || 5000;
