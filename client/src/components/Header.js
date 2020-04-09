@@ -19,10 +19,12 @@ class Header extends Component {
           <li key="logout">
             <a href="/api/logout">Logout</a>
           </li>,
-          <li key="credits">Credits: {this.props.auth.credits}</li>,
+          <li key="credits" style={{ marginRight: "10px" }}>
+            Credits: {this.props.auth.credits}
+          </li>,
           <li key="payments">
             <Payments />
-          </li>
+          </li>,
         ];
     }
   };
