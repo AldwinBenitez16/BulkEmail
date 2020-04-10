@@ -5,6 +5,7 @@ const passport = require("passport");
 const bodyParser = require("body-parser");
 const keys = require("./config/keys");
 require("./models/User"); // initializes schema and connection to mongoDb database using mongoose
+require("./models/Survey");
 require("./services/passport"); // sets up OAuth and id/user management
 
 mongoose.connect(keys.mongoURI); // connect mongoDb database to mongoose
