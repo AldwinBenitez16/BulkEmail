@@ -29,10 +29,10 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchUser: dispatch(actions.fetchUser())
-  };
-};
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     fetchUser: dispatch(actions.fetchUser())
+//   };
+// };
 
 export default connect(null, actions)(App);
