@@ -9,10 +9,6 @@ import App from "./components/App";
 import reducers from "./reducers";
 const store = createStore(reducers, {}, applyMiddleware(thunk));
 
-// Testing
-import axios from "axios";
-Window.axios = axios;
-
 ReactDOM.render(
   <Provider store={store}>
     <App />
