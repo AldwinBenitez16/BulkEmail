@@ -8,7 +8,14 @@ require("./models/User"); // initializes schema and connection to mongoDb databa
 require("./models/Survey");
 require("./services/passport"); // sets up OAuth and id/user management
 
-mongoose.connect(keys.mongoURI); // connect mongoDb database to mongoose
+// connect mongoDb database to mongoose
+mongoose
+  .connect(keys.mongoURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("DB Connected!"))
+  .catch((err) => console.log(`DB Connection Error: ${err.message}`));
 
 // creates a new express application
 const app = express();

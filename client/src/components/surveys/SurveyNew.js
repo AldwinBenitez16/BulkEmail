@@ -20,11 +20,14 @@ class Surveynew extends Component {
   }
 
   renderContent() {
-    if (this.state.showReview) {
-      return <SurveyFormReview onCancel={this.toggleShowReview} />;
+    const { show } = this.props;
+    if (show) {
+      if (this.state.showReview) {
+        return <SurveyFormReview onCancel={this.toggleShowReview} />;
+      }
+      return <SurveyForm onSurveySubmit={this.toggleShowReview} />;
     }
-
-    return <SurveyForm onSurveySubmit={this.toggleShowReview} />;
+    return;
   }
 
   render() {

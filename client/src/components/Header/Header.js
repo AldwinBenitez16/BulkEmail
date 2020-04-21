@@ -11,13 +11,16 @@ class Header extends Component {
       case null:
         return;
       case false:
-        return (
-          <li>
-            <a href="/auth/google">
-              <i className="material-icons">account_circle</i>Login
+        return [
+          <li className="masking-link">
+            <a href="/auth/google" title="Login">
+              <i className="material-icons" title="account_circle">
+                account_circle
+              </i>
+              Login
             </a>
-          </li>
-        );
+          </li>,
+        ];
       default:
         return [
           <li key="credits" style={{ marginRight: "10px" }}>
@@ -54,7 +57,7 @@ class Header extends Component {
           >
             BulkMail
           </Link>
-          <ul className="right">{this.renderContent()}</ul>
+          <ul>{this.renderContent()}</ul>
         </div>
       </nav>
     );

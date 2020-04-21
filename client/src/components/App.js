@@ -5,8 +5,7 @@ import * as actions from "../actions";
 
 import Header from "./Header/Header";
 import Landing from "./Landing";
-import Dashboard from "./Dashboard";
-import SurverNew from "./surveys/SurveyNew";
+import Dashboard from "./Dashboard/Dashboard";
 
 import Main from "./hoc/Main";
 
@@ -24,7 +23,6 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Landing} />
               <Route exact path="/surveys" component={Dashboard} />
-              <Route path="/surveys/new" component={SurverNew} />
             </Switch>
           </Main>
         </BrowserRouter>
@@ -32,11 +30,5 @@ class App extends Component {
     );
   }
 }
-
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     fetchUser: dispatch(actions.fetchUser())
-//   };
-// };
 
 export default connect(null, actions)(App);

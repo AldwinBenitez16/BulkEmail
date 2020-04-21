@@ -1,0 +1,18 @@
+.masking-link {
+  i,
+  a {
+    color: black;
+    transition: color 0.5s ease-in-out;
+  }
+
+  a {
+    text-transform: uppercase;
+  }
+}
+
+.masking-link:hover {
+  i,
+  a {
+    color: #fff;
+  }
+}

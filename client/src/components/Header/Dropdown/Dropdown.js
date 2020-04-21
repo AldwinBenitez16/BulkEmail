@@ -4,15 +4,14 @@ import M from "materialize-css";
 class Dropdown extends Component {
   componentDidMount() {
     var elems = document.querySelectorAll(".dropdown-trigger");
-    M.Dropdown.init(elems, {});
+    M.Dropdown.init(elems);
   }
 
   render() {
     const { name } = this.props;
-    console.log(name);
     return (
       <Fragment>
-        <a className="dropdown-trigger btn" href="#" data-target="dropdown1">
+        <a className="dropdown-trigger btn" data-target="dropdown1">
           {name}
         </a>
 

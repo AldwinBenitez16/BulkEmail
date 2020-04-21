@@ -28,7 +28,6 @@ nav {
   [class^="mdi-"],
   [class*="mdi-"],
   i.material-icons {
-    display: block;
     font-size: 24px;
     height: $navbar-height-mobile;
     line-height: $navbar-line-height-mobile;
@@ -129,7 +128,7 @@ nav {
       font-size: $navbar-font-size;
       color: $navbar-font-color;
       display: block;
-      padding: 0 15px;
+      // padding: 0 15px;
       cursor: pointer;
 
       &.btn,
