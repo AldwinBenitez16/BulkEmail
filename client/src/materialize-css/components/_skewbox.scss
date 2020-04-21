@@ -1,0 +1,33 @@
+$skewed: blue;
+
+* {
+  box-sizing: border-box;
+}
+
+.skewed-background {
+  background: #ffc857;
+  min-height: 100vh;
+}
+.skewed-box-top {
+  background: #fff;
+  color: black;
+  padding: 50px 0;
+  transform: skew(0deg, -3deg) translate(-0px, -80px);
+  height: 10%;
+}
+.skewed-container {
+  padding: 10px;
+  transform: skew(0deg, 3deg);
+  height: 100px;
+  h1 {
+    margin: 0;
+    padding: 0px 0;
+    font-size: 3em;
+  }
+}
+.skewed-box-bottom {
+  opacity: 1;
+  height: 90%;
+  padding: 0 100px 100px;
+  text-align: right;
+}
