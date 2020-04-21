@@ -1,0 +1,19 @@
+.landing {
+  text-align: center;
+  .title {
+    font-size: 7rem;
+    text-decoration: underline;
+  }
+  .subtitle {
+    font-size: 1.5rem;
+    font-style: italic;
+  }
+  @media #{$small-and-down} {
+    .title {
+      font-size: 5rem;
+    }
+    .subtitle {
+      font-size: 1.1rem;
+    }
+  }
+}

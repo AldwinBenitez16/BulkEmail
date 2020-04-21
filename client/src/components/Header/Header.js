@@ -13,7 +13,9 @@ class Header extends Component {
       case false:
         return (
           <li>
-            <a href="/auth/google">OAuth Login</a>
+            <a href="/auth/google">
+              <i className="material-icons">account_circle</i>Login
+            </a>
           </li>
         );
       default:
@@ -31,11 +33,22 @@ class Header extends Component {
     }
   };
 
+  componentDidMount() {
+    const elem = document.querySelector(".skewed-nav");
+    elem.addEventListener("mouseover", () => {
+      elem.classList.add("background-red");
+    });
+    elem.addEventListener("mouseleave", () => {
+      elem.classList.remove("background-red");
+    });
+  }
+
   render() {
     return (
-      <nav className="skewed-box-top">
+      <nav className="skewed-box-top skewed-nav">
         <div className="skewed-container">
           <Link
+            to={this.props.auth ? "/surveys" : "/"}
             to={this.props.auth ? "/surveys" : "/"}
             className="left brand-logo"
           >
