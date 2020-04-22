@@ -13,7 +13,7 @@ const BUTTONLIST = [
     title: "Surveys",
     addClass: "blue darken-1",
     icon: "mail",
-    showName: "Surveys",
+    showName: "List",
   },
   {
     title: "New Survey",

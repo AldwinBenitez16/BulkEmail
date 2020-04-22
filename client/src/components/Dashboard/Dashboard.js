@@ -37,7 +37,7 @@ class Dashboard extends Component {
 
     return (
       <DashProvider value={contextValues}>
-        <div>
+        <div className="left-align">
           <SurveyList show={this.state.showSurveyList} />
           <SurverNew show={this.state.showSurveyNew} />
           <ActionButton />

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { reduxForm } from "redux-form";
-import SurveyForm from "./SurveyForm";
-import SurveyFormReview from "./SurveyFormReview";
+import { reduxForm, reset } from "redux-form";
+import SurveyForm from "./SurveyForm/SurveyForm";
+import SurveyFormReview from "./SurveyForm/SurveyFormReview";
 
 class Surveynew extends Component {
   constructor(props) {
@@ -19,19 +19,23 @@ class Surveynew extends Component {
     }));
   }
 
-  renderContent() {
+  renderForm() {
+    if (this.state.showReview) {
+      return <SurveyFormReview onCancel={this.toggleShowReview} />;
+    }
+    return <SurveyForm onSurveySubmit={this.toggleShowReview} />;
+  }
+
+  showContent() {
     const { show } = this.props;
     if (show) {
-      if (this.state.showReview) {
-        return <SurveyFormReview onCancel={this.toggleShowReview} />;
-      }
-      return <SurveyForm onSurveySubmit={this.toggleShowReview} />;
+      return this.renderForm();
     }
-    return;
   }
 
   render() {
-    return <div>{this.renderContent()}</div>;
+    console.log(this.props);
+    return <div>{this.showContent()}</div>;
   }
 }
 
