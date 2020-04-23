@@ -2,7 +2,7 @@ import React from "react";
 
 const DashContext = React.createContext();
 
-export const DashProvider = DashContext.Provider;
-export const DashConsumer = DashContext.Consumer;
+const Provider = DashContext.Provider;
+const Consumer = DashContext.Consumer;
 
-export default DashContext;
+export { DashContext, Provider, Consumer };

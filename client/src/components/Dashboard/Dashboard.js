@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import SurveyList from "../surveys/SurveyList";
 import SurverNew from "../surveys/SurveyNew";
 import ActionButton from "./ActionButton/ActionButton";
-import { DashProvider } from "./DashboardContext";
+import { Provider as DashProvider } from "./DashboardContext";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -31,12 +31,12 @@ class Dashboard extends Component {
   }
 
   render() {
-    const contextValues = {
+    const value = {
       show: this.toogleShowingComponentHandler,
     };
 
     return (
-      <DashProvider value={contextValues}>
+      <DashProvider value={value}>
         <div className="left-align">
           <SurveyList show={this.state.showSurveyList} />
           <SurverNew show={this.state.showSurveyNew} />
