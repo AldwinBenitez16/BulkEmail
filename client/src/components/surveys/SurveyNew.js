@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { reduxForm, reset } from "redux-form";
 import SurveyForm from "./SurveyForm/SurveyForm";
 import SurveyFormReview from "./SurveyForm/SurveyFormReview";
+import { Provider as SurveyProvider } from "./SurveyContext";
 
 class Surveynew extends Component {
   constructor(props) {
@@ -34,7 +35,15 @@ class Surveynew extends Component {
   }
 
   render() {
-    return <div>{this.showContent()}</div>;
+    const value = {
+      reset,
+      surveyShow: this.toggleShowReview,
+    };
+    return (
+      <SurveyProvider value={value}>
+        <div>{this.showContent()}</div>
+      </SurveyProvider>
+    );
   }
 }
 

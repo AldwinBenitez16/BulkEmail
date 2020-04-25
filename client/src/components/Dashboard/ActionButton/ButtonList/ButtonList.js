@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import M from "materialize-css";
-import { DashContext } from "../../DashboardContext";
+import Context from "../../DashboardContext";
 
 const BUTTONLIST = [
   {
@@ -24,7 +24,7 @@ const BUTTONLIST = [
 ];
 
 class ButtonList extends Component {
-  static contextType = DashContext;
+  static contextType = Context;
 
   componentDidMount() {
     let elems = document.querySelectorAll(".fixed-action-btn");
@@ -35,12 +35,11 @@ class ButtonList extends Component {
   }
 
   renderButtons = () => {
-    const { show } = this.context;
-    console.log(DashContext);
+    const { dashboardShow } = this.context;
     return BUTTONLIST.map(({ title, addClass, icon, showName }) => (
       <li title={title} key={title}>
         <a className={`btn-floating ${addClass}`}>
-          <i onClick={() => show(showName)} className="material-icons">
+          <i onClick={() => dashboardShow(showName)} className="material-icons">
             {icon}
           </i>
         </a>

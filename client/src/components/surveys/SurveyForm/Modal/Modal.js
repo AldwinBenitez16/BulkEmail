@@ -1,8 +1,10 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../../../actions";
 import M from "materialize-css";
 import ModalStructure from "./ModalStructure";
+
+import MainProvider from "../.../../../../../utils/combineContext";
 
 class Modal extends Component {
   componentDidMount() {
@@ -13,7 +15,7 @@ class Modal extends Component {
   render() {
     const { submitSurvey, formValues } = this.props;
     return (
-      <Fragment>
+      <MainProvider>
         <button
           onClick={() => submitSurvey(formValues)}
           data-target="modal1"
@@ -23,7 +25,7 @@ class Modal extends Component {
           <i className="material-icons right">email</i>
         </button>
         <ModalStructure />
-      </Fragment>
+      </MainProvider>
     );
   }
 }

@@ -32,9 +32,8 @@ class Dashboard extends Component {
 
   render() {
     const value = {
-      show: this.toogleShowingComponentHandler,
+      dashboardShow: this.toogleShowingComponentHandler,
     };
-
     return (
       <DashProvider value={value}>
         <div className="left-align">
