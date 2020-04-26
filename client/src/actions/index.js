@@ -29,3 +29,7 @@ export const fetchSurveys = () => async (dispatch) => {
     payload: res.data,
   });
 };
+
+export const resetForm = (formName, reset) => (dispatch) => {
+  dispatch(reset(formName));
+};
